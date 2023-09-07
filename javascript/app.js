@@ -5,6 +5,11 @@ const singer = document.querySelector(".music-details .singer");
 const previous = document.querySelector("#controls #previous");
 const play = document.querySelector("#controls #play");
 const next = document.querySelector("#controls #next");
+const duration = document.querySelector("#duration");
+const currentTime = document.querySelector("#current-time");
+const progressBar = document.querySelector("#progress-bar");
+const volume = document.querySelector("#volume");
+const volumeBar = document.querySelector("#volume-bar");
 
 
 const player = new MusicPlayer(musicList);
@@ -19,7 +24,7 @@ function displayMusic(music) {
     title.innerText = music.getName();
     singer.innerText = music.singer;
     // image.src = "img/" + music.img;
-    image.src = "https://picsum.photos/300";
+    image.src = "https://picsum.photos/300/100";
     audio.src = "mp3/" + music.file;
 }
 
@@ -63,3 +68,56 @@ function playMusic(){
     play.classList = "fa-solid fa-pause"
     audio.play();
 }
+
+const calculateTime = (seconds) => {
+    const minute = Math.floor(seconds / 60);
+    const second = Math.floor(seconds % 60);
+    const updatedSecond = second < 10 ? `0${second}`: `${second}`
+    const expression = `${minute}:${updatedSecond}`
+}
+
+
+audio.addEventListener("loadedmetadata", () => {
+    duration.textContent = calculateTime(audio.duration);
+    progressBar.max = Math.floor(audio.duration);
+})  
+
+audio.addEventListener("timeupdate", () =>{
+    progressBar.value = Math.floor(audio.currentTime);
+    currentTime.textContent = calculateTime(progressBar.value);
+})
+
+progressBar.addEventListener("input", () => {
+    currentTime.textContent = calculateTime(progressBar.value);
+    audio.currentTime = progressBar.value;
+})
+
+let muteState = "muted" ;
+
+volumeBar.addEventListener("input", (e) => {
+    const value = e.target.value;
+    audio.volume = value / 100;
+    if(value==0){
+        audio.muted = true;
+        muteState = "muted";
+        volume.classList = "fa-solid fa-volume-xmark";
+    } else {
+        audio.muted = false;
+        muteState = "unmute";
+        volume.classList = "fa-solid fa-volume-high";
+    }
+})
+
+volume.addEventListener("click", () => {
+    if(muteState === "unmute"){
+        audio.muted = true;
+        muteState = "muted";
+        volume.classList = "fa-solid fa-volume-xmark";
+        volumeBar.value = 0;
+    } else{
+        audio.muted = false;
+        muteState = "unmute";
+        volume.classList = "fa-solid fa-volume-high";
+        volumeBar.value = 100;
+    }
+})

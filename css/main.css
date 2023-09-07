@@ -1,4 +1,27 @@
-#controls i {
-  font-size: 30px;
-  color: #eeea04;
-  margin-right: 20; }
+body {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh; }
+
+.container {
+  width: 400px; }
+
+#controls {
+  display: flex;
+  align-items: center;
+  justify-content: center; }
+  #controls i {
+    font-size: 30px;
+    color: #eeea04;
+    margin-right: 20px;
+    margin-bottom: 10px; }
+
+#progress {
+  margin-bottom: 20px; }
+  #progress-bar {
+    width: 100%; }
+  #progress .times {
+    display: flex;
+    align-items: center;
+    justify-content: space-between; }

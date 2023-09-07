@@ -1,8 +1,38 @@
+body{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+}
+.container {
+    width: 400px;
+}
+
 #controls{
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
 
     i {
         font-size: 30px;
         color: rgb(238, 234, 4);
         margin-right: 20px;
+        margin-bottom: 10px;
     }
 } 
+
+#progress {
+
+    margin-bottom: 20px;
+
+    &-bar{
+        width: 100%;
+    }
+
+    .times{
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+}
