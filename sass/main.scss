@@ -5,34 +5,25 @@ body{
     height: 100vh;
 }
 .container {
-    width: 400px;
+    width: 250px;
 }
 
-#controls{
-
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    i {
-        font-size: 30px;
-        color: rgb(238, 234, 4);
-        margin-right: 20px;
-        margin-bottom: 10px;
-    }
-} 
 
 #progress {
-
-    margin-bottom: 20px;
-
-    &-bar{
-        width: 100%;
-    }
 
     .times{
         display: flex;
         align-items: center;
         justify-content: space-between;
     }
+}
+
+.card-footer, .volume-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.volume-container i{
+    margin-right: 5px;
 }

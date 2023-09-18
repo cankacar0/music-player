@@ -24,7 +24,7 @@ function displayMusic(music) {
     title.innerText = music.getName();
     singer.innerText = music.singer;
     // image.src = "img/" + music.img;
-    image.src = "https://picsum.photos/300/100";
+    image.src = music.img;
     audio.src = "mp3/" + music.file;
 }
 
@@ -59,13 +59,13 @@ function nextMusic(){
 
 function pauseMusic(){
     container.classList.remove("playing");
-    play.classList = "fa-solid fa-play"
+    play.querySelector("i").classList = "fa-solid fa-play"
     audio.pause();
 }
 
 function playMusic(){
     container.classList.add("playing");
-    play.classList = "fa-solid fa-pause"
+    play.querySelector("i").classList = "fa-solid fa-pause"
     audio.play();
 }
 

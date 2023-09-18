@@ -12,7 +12,7 @@ class Music {
 }
 
 const musicList = [
-    new Music ("Boşver", "Nilüfer", "1.jpeg", "1.mp3"),
-    new Music ("Bu da geçer mi sevgilim", "yalın", "2.jpeg", "2.mp3"),
-    new Music ("aramızda uçurumlar", "suat suna", "3.jpeg", "3.mp3")
+    new Music ("Boşver", "Nilüfer", "https://picsum.photos/300/100", "1.mp3"),
+    new Music ("Bu da geçer mi sevgilim", "yalın", "https://picsum.photos/300/100", "2.mp3"),
+    new Music ("aramızda uçurumlar", "suat suna", "https://picsum.photos/300/100", "3.mp3")
 ];
